@@ -1,0 +1,35 @@
+wget  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
+tar -xf boost_1_69_0.tar.gz
+rm -rf boost_1_69_0
+
+
+find . -maxdepth 1 -type f | wc -l //  в текущем каталоге без подкаталогов
+12
+find . -type f | wc -l // все файлы в текущем каталоге и подкаталогах
+61191
+
+$ find  -type f -name "*.cpp" | wc -l // все файлы с расширением ".cpp"
+13774  
+
+$find  -type f -name "*.h" | wc -l //все заголовочные файлы (с расширением ".h")
+296  
+
+$ find -type f ! -name "*.h" ! -name "*.cpp" | wc -l // количество остальных файлов
+47121
+
+$ find -name "any.hpp"
+./boost/fusion/include/any.hpp
+./boost/fusion/algorithm/query/any.hpp
+./boost/fusion/algorithm/query/detail/any.hpp
+./boost/any.hpp
+./boost/spirit/home/support/algorithm/any.hpp
+./boost/type_erasure/any.hpp
+./boost/hana/any.hpp
+./boost/hana/fwd/any.hpp
+./boost/proto/detail/any.hpp
+./boost/xpressive/detail/utility/any.hpp
+
+$ grep -rl "boost::asio" . |wc -l //файлы в которых присутствует "boost::asio"
+1763
+
+
