@@ -1,0 +1,176 @@
+$export GITHUB_USERNAME=klich26
+$export GIST_TOKEN=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
+$ alias edit=nano
+$mkdir -pv ${GITHUB_USERNAME}/workspace
+mkdir: created directory 'klich26'
+mkdir: created directory 'klich26/workspace'
+$ cd ${GITHUB_USERNAME}/workspace
+$ pwd
+/home/klich26/klich26/workspace
+$ cd ..
+$pwd
+/home/klich26/klich26
+$ mkdir -pv workspace/tasks
+mkdir: created directory 'workspace/tasks'
+$ mkdir -pv workspace/projects
+mkdir: created directory 'workspace/projects'
+$ mkdir -pv workspace/reports
+mkdir: created directory 'workspace/reports'
+$ cd workspace/
+$ wget https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+--2025-03-10 16:14:24--  https://nodejs.org/dist/v6.11.5/node-v6.11.5-linux-x64.tar.xz
+Resolving nodejs.org (nodejs.org)... 104.20.23.46, 104.20.22.46, 2606:4700:10::6814:162e, ...
+Connecting to nodejs.org (nodejs.org)|104.20.23.46|:443... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 9356460 (8.9M) [application/x-xz]
+Saving to: ‘node-v6.11.5-linux-x64.tar.xz’
+
+node-v6.11.5-linux-x64.tar.xz 100%[=================================================>]   8.92M  2.46MB/s    in 3.9s
+
+2025-03-10 16:14:29 (2.31 MB/s) - ‘node-v6.11.5-linux-x64.tar.xz’ saved [9356460/9356460]
+
+
+$tar -xf node-v6.11.5-linux-x64.tar.xz
+$rm -rf node-v6.11.5-linux-x64.tar.xz
+$ mv node-v6.11.5-linux-x64 node
+$ ls node/bin/
+node  npm
+
+$ echo ${PATH}
+/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/games:/usr/games
+
+
+$ export PATH=${PATH}:/klich26/workspace/node/bin
+
+$ echo ${PATH}
+$mkdir -v scripts
+mkdir: created directory 'scripts'
+$ cat > scripts/activate<<EOF
+> export PATH=\${PATH}:/klich26/workspace/node/bin
+> EOF
+$ source scripts/activate
+$ apt install gist 
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+The following additional packages will be installed:
+  fonts-lato javascript-common libjs-jquery libruby2.7 rake ruby ruby-json ruby-minitest ruby-net-telnet
+  ruby-power-assert ruby-rubygems ruby-test-unit ruby-xmlrpc ruby2.7 rubygems-integration
+Suggested packages:
+  apache2 | lighttpd | httpd ri ruby-dev bundler
+The following NEW packages will be installed:
+  fonts-lato gist javascript-common libjs-jquery libruby2.7 rake ruby ruby-json ruby-minitest ruby-net-telnet
+  ruby-power-assert ruby-rubygems ruby-test-unit ruby-xmlrpc ruby2.7 rubygems-integration
+0 upgraded, 16 newly installed, 0 to remove and 41 not upgraded.
+Need to get 8,322 kB of archives.
+After this operation, 32.8 MB of additional disk space will be used.
+Do you want to continue? [Y/n] y
+Get:1 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf fonts-lato all 2.0-2.1 [2,696 kB]
+Get:2 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf rubygems-integration all 1.18 [6,704 B]
+Get:3 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf rake all 13.0.3-1 [84.7 kB]
+Get:4 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-minitest all 5.13.0-1 [57.3 kB]
+Get:5 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-net-telnet all 0.1.1-2 [12.5 kB]
+Get:6 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-power-assert all 1.1.7-2 [11.5 kB]
+Get:7 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-test-unit all 3.3.9-1 [86.1 kB]
+Get:8 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-xmlrpc all 0.3.0-2 [23.7 kB]
+Get:9 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf libruby2.7 armhf 2.7.4-1+deb11u4 [3,911 kB]
+Get:10 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf ruby2.7 armhf 2.7.4-1+deb11u4 [748 kB]
+Get:11 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf ruby-rubygems all 3.2.5-2 [281 kB]
+Get:12 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf ruby armhf 1:2.7+2 [11.7 kB]
+Get:13 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf ruby-json armhf 2.3.0+dfsg-1+b1 [51.9 kB]
+Get:14 http://mirror.datacenter.by/pub/mirrors/archive.raspbian.org/raspbian bullseye/main armhf gist all 6.0.0-1 [18.4 kB]
+Get:15 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf javascript-common all 11+nmu1 [6,260 B]
+Get:16 http://raspbian.raspberrypi.org/raspbian bullseye/main armhf libjs-jquery all 3.5.1+dfsg+~3.5.5-7 [315 kB]
+Fetched 8,322 kB in 5s (1,660 kB/s)
+Selecting previously unselected package fonts-lato.
+(Reading database ... 45412 files and directories currently installed.)
+Preparing to unpack .../00-fonts-lato_2.0-2.1_all.deb ...
+Unpacking fonts-lato (2.0-2.1) ...
+Selecting previously unselected package rubygems-integration.
+Preparing to unpack .../01-rubygems-integration_1.18_all.deb ...
+Unpacking rubygems-integration (1.18) ...
+Selecting previously unselected package rake.
+Preparing to unpack .../02-rake_13.0.3-1_all.deb ...
+Unpacking rake (13.0.3-1) ...
+Selecting previously unselected package ruby-minitest.
+Preparing to unpack .../03-ruby-minitest_5.13.0-1_all.deb ...
+Unpacking ruby-minitest (5.13.0-1) ...
+Selecting previously unselected package ruby-net-telnet.
+Preparing to unpack .../04-ruby-net-telnet_0.1.1-2_all.deb ...
+Unpacking ruby-net-telnet (0.1.1-2) ...
+Selecting previously unselected package ruby-power-assert.
+Preparing to unpack .../05-ruby-power-assert_1.1.7-2_all.deb ...
+Unpacking ruby-power-assert (1.1.7-2) ...
+Selecting previously unselected package ruby-test-unit.
+Preparing to unpack .../06-ruby-test-unit_3.3.9-1_all.deb ...
+Unpacking ruby-test-unit (3.3.9-1) ...
+Selecting previously unselected package ruby-xmlrpc.
+Preparing to unpack .../07-ruby-xmlrpc_0.3.0-2_all.deb ...
+Unpacking ruby-xmlrpc (0.3.0-2) ...
+Selecting previously unselected package libruby2.7:armhf.
+Preparing to unpack .../08-libruby2.7_2.7.4-1+deb11u4_armhf.deb ...
+Unpacking libruby2.7:armhf (2.7.4-1+deb11u4) ...
+Selecting previously unselected package ruby2.7.
+Preparing to unpack .../09-ruby2.7_2.7.4-1+deb11u4_armhf.deb ...
+Unpacking ruby2.7 (2.7.4-1+deb11u4) ...
+Selecting previously unselected package ruby-rubygems.
+Preparing to unpack .../10-ruby-rubygems_3.2.5-2_all.deb ...
+Unpacking ruby-rubygems (3.2.5-2) ...
+Selecting previously unselected package ruby.
+Preparing to unpack .../11-ruby_1%3a2.7+2_armhf.deb ...
+Unpacking ruby (1:2.7+2) ...
+Selecting previously unselected package ruby-json.
+Preparing to unpack .../12-ruby-json_2.3.0+dfsg-1+b1_armhf.deb ...
+Unpacking ruby-json (2.3.0+dfsg-1+b1) ...
+Selecting previously unselected package gist.
+Preparing to unpack .../13-gist_6.0.0-1_all.deb ...
+Unpacking gist (6.0.0-1) ...
+Selecting previously unselected package javascript-common.
+Preparing to unpack .../14-javascript-common_11+nmu1_all.deb ...
+Unpacking javascript-common (11+nmu1) ...
+Selecting previously unselected package libjs-jquery.
+Preparing to unpack .../15-libjs-jquery_3.5.1+dfsg+~3.5.5-7_all.deb ...
+Unpacking libjs-jquery (3.5.1+dfsg+~3.5.5-7) ...
+Setting up javascript-common (11+nmu1) ...
+Setting up fonts-lato (2.0-2.1) ...
+Setting up ruby-power-assert (1.1.7-2) ...
+Setting up rubygems-integration (1.18) ...
+Setting up ruby-minitest (5.13.0-1) ...
+Setting up ruby-test-unit (3.3.9-1) ...
+Setting up ruby-net-telnet (0.1.1-2) ...
+Setting up libjs-jquery (3.5.1+dfsg+~3.5.5-7) ...
+Setting up ruby-xmlrpc (0.3.0-2) ...
+Setting up rake (13.0.3-1) ...
+Setting up ruby-rubygems (3.2.5-2) ...
+Setting up libruby2.7:armhf (2.7.4-1+deb11u4) ...
+Setting up ruby2.7 (2.7.4-1+deb11u4) ...
+Setting up ruby (1:2.7+2) ...
+Setting up ruby-json (2.3.0+dfsg-1+b1) ...
+Setting up gist (6.0.0-1) ...
+Processing triggers for libc-bin (2.31-13+rpt2+rpi1+deb11u11) ...
+Processing triggers for man-db (2.9.4-2) ...
+
+$ (umask 0077 && echo ${GIST_TOKEN}>~/.gist)
+
+$ export LAB_NUMBER=01
+$ git clone https://github.com/tp-labs/lab${LAB_NUMBER} tasks/lab${LAB_NUMBER}
+Cloning into 'tasks/lab01'...
+remote: Enumerating objects: 74, done.
+remote: Counting objects: 100% (3/3), done.
+remote: Compressing objects: 100% (3/3), done.
+remote: Total 74 (delta 0), reused 1 (delta 0), pack-reused 71 (from 1)
+Receiving objects: 100% (74/74), 945.07 KiB | 1.10 MiB/s, done.
+Resolving deltas: 100% (20/20), done.
+
+$ mkdir -v reports/lab${LAB_NUMBER}
+mkdir: created directory 'reports/lab01'
+$ cp tasks/lab${LAB_NUMBER}/README.md reports/lab${LAB_NUMBER}/REPORT.md
+$ cd reports/lab${LAB_NUMBER}
+$ edit REPORT.md
+
+$ gist REPORT.md
+gist: (WARNING) fread failed (command) on CGM file REPORT.md
+gist: (WARNING) BEGIN METAFILE element missing
+gist: (WARNING) REPORT.md is not a binary CGM, cannot open
+gist: (WARNING)
+gist: (WARNING) Unable to open X server (default)
