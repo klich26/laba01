@@ -1,6 +1,6 @@
 wget  https://sourceforge.net/projects/boost/files/boost/1.69.0/boost_1_69_0.tar.gz
 tar -xf boost_1_69_0.tar.gz
-rm -rf boost_1_69_0
+rm -rf boost_1_69_0.tar.gz
 
 
 find . -maxdepth 1 -type f | wc -l //  в текущем каталоге без подкаталогов
@@ -17,19 +17,33 @@ $find  -type f -name "*.h" | wc -l //все заголовочные файлы 
 $ find -type f ! -name "*.h" ! -name "*.cpp" | wc -l // количество остальных файлов
 47121
 
-$ find -name "any.hpp"
-./boost/fusion/include/any.hpp
-./boost/fusion/algorithm/query/any.hpp
-./boost/fusion/algorithm/query/detail/any.hpp
+$ find -name "any.hpp" //поиск "any.hpp"
 ./boost/any.hpp
-./boost/spirit/home/support/algorithm/any.hpp
-./boost/type_erasure/any.hpp
-./boost/hana/any.hpp
-./boost/hana/fwd/any.hpp
-./boost/proto/detail/any.hpp
-./boost/xpressive/detail/utility/any.hpp
 
-$ grep -rl "boost::asio" . |wc -l //файлы в которых присутствует "boost::asio"
-1763
+
+$ grep -rl "boost::asio" .  //файлы в которых присутствует "boost::asio" (| wc -l вывод количества файлов) 
+
+//файлы 
+
+
+// для компиляции boost надо 
+$apt install libicu-dev
+//создаем конфигурацию сборки
+$./bootstrap.sh --prefix=boost_output --with-icu= 
+
+//собираем программу
+$./b2 install
+$ rm -rf boost_1_69_0.tar.gz
+
+// поиск и перемещение статических библиотек
+$find -name "*.a" -exec cp {} ~/boost-libs/ \;
+
+// вес каждого файла
+$ ls -lhS 
+// вес всего каталога
+$du -h
+
+//вывод самых 10 "тяжелых" файлов в каталоге
+$ ls -lhS | head -n 10
 
 
